@@ -1,0 +1,9 @@
+{    
+    "rules": {
+        "comment-format": false,
+        "eofline": false,
+        "ordered-imports": false,
+        "no-duplicate-imports": true,
+        "no-unused-variable": true
+    }    
+}

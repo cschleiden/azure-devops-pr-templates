@@ -1,6 +1,6 @@
 {
     "manifestVersion": 1,
-    "version": "0.1.3",
+    "version": "0.1.4",
     "name": "PR Templates",
     "scopes": [
         "vso.code_write"
@@ -54,7 +54,8 @@
             "properties": {
                 "group": "contributed",
                 "uri": "src/index.html",
-                "text": "Templates"
+                "text": "Templates",
+                "registeredObjectId": ""
             }
         },
         {
@@ -65,9 +66,14 @@
             }
         },
         {
-            "id": "manage-templates",
-            "type": "ms.vss-web.control",
+            "id": "manage-templates-hub",
+            "type": "ms.vss-web.hub",
+            "targets": [
+                "ms.vss-web.project-admin-hub-group"
+            ],
             "properties": {
+                "name": "Pull Request Templates",
+                "order": 100,
                 "uri": "src/manage.html"
             }
         }

@@ -4,7 +4,13 @@
         "sourceMap": false,
         "target": "es5",
         "jsx": "react",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "es2015.promise"
+        ]
     },
     "typeAcquisition": {
         "enable": true
@@ -12,5 +18,5 @@
     "filesGlob": [
         "src/**/*.ts",
         "src/**/*.tsx"
-    ]    
+    ]
 }
