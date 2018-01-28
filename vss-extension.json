@@ -1,0 +1,75 @@
+{
+    "manifestVersion": 1,
+    "version": "0.1.3",
+    "name": "PR Templates",
+    "scopes": [
+        "vso.code_write"
+    ],
+    "description": "Quickly add templates like checklists to your pull request descriptions",
+    "publisher": "cschleiden",
+    "id": "prtemplates",
+    "icons": {
+        "default": "marketplace/logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "demands": [
+        "api-version/3.0"
+    ],
+    "tags": [
+        "Pull Requests",
+        "Templates"
+    ],
+    "content": {
+        "details": {
+            "path": "marketplace/details.md"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cschleiden/vsts-pr-templates"
+    },
+    "links": {
+        "support": {
+            "url": "mailto:christopher.schleiden@microsoft.com"
+        }
+    },
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+        "theme": "light"
+    },
+    "categories": [
+        "Plan and track"
+    ],
+    "contributions": [
+        {
+            "id": "context-menu",
+            "type": "ms.vss-web.action",
+            "targets": [
+                "ms.vss-code-web.pull-request-action-menu"
+            ],
+            "properties": {
+                "group": "contributed",
+                "uri": "src/index.html",
+                "text": "Templates"
+            }
+        },
+        {
+            "id": "apply-templates",
+            "type": "ms.vss-web.control",
+            "properties": {
+                "uri": "src/apply.html"
+            }
+        },
+        {
+            "id": "manage-templates",
+            "type": "ms.vss-web.control",
+            "properties": {
+                "uri": "src/manage.html"
+            }
+        }
+    ]
+}

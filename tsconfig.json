@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "sourceMap": false,
+        "target": "es5",
+        "jsx": "react",
+        "moduleResolution": "node"
+    },
+    "typeAcquisition": {
+        "enable": true
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ]    
+}
