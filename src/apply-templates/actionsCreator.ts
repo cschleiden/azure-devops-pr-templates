@@ -1,7 +1,8 @@
 import { ActionsHub } from "./actions";
 import { ITemplate, IActionPullRequest, Mode } from "../models/interfaces";
-import { TemplateService } from "../services/templateService";
+import { ApplyTemplateService } from "../services/templateService";
 import { ApplyTemplateStore } from "./store";
+import { TemplateStoreService } from "../services/TemplateStore";
 
 export class ActionsCreator {
     constructor(private actionsHub: ActionsHub, private store: ApplyTemplateStore) {
@@ -11,12 +12,18 @@ export class ActionsCreator {
         this.actionsHub.changeSelection.invoke(selectedTemplates);
     }
 
-    initialize(templates: ITemplate[]): void {
-        this.actionsHub.initialize.invoke(templates);
+    initialize(): void {
+        new TemplateStoreService().getTemplates().then(
+            templates => {
+                this.actionsHub.initialize.invoke(templates);
+            },
+            error => {
+                this.actionsHub.changeMode.invoke(Mode.Error);
+            });
     }
 
     applyTemplates(pullRequest: IActionPullRequest): Promise<void> {
-        const service = new TemplateService();
+        const service = new ApplyTemplateService();
 
         const selectedTemplates = this.store.getSelectedTemplates();
 

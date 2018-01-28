@@ -6,7 +6,7 @@ import { ITemplate, Mode } from "../models/interfaces";
 export class ApplyTemplateStore extends BaseStore<ActionsHub> {
     private templates: ITemplate[] = [];
     private selectedTemplates: ITemplate[] = [];
-    private mode: Mode = Mode.Selecting;
+    private mode: Mode = Mode.Loading;
 
     protected init() {
         this.actionsHub.initialize.addListener(this.initialize);
@@ -33,6 +33,7 @@ export class ApplyTemplateStore extends BaseStore<ActionsHub> {
     @autobind
     private initialize(templates: ITemplate[]) {
         this.templates = templates.slice(0);
+        this.mode = Mode.Selecting;
 
         this.emitChanged();
     }

@@ -18,29 +18,38 @@ module.exports = {
     ],
     resolve: {
         extensions: [
-            "",
             ".webpack.js",
             ".web.js",
             ".ts",
             ".tsx",
-            ".js"],
-        root: [
-            path.resolve("./src")
-        ]
+            ".js"
+        ],
+        moduleExtensions: ["-loader"]
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader"
             },
             {
                 test: /\.s?css$/,
-                loaders: ["style", "css", "sass"]
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" }
+                ]
+            },
+            {
+                test: /\.(otf|eot|svg|ttf|woff|woff2|gif)(\?.+)?$/,
+                use: "url-loader?limit=4096&name=[name].[ext]"
             }
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify("production")
+        }),
         new CopyWebpackPlugin([
             { from: "./node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js", to: "libs/VSS.SDK.min.js" },
             { from: "./src/*.html", to: "./" },

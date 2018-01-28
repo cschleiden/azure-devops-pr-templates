@@ -1,40 +1,8 @@
 import "./TemplateList.scss";
 import * as React from "react";
-import { DetailsList, SelectionMode, IColumn, ISelection, Selection, ConstrainMode, CheckboxVisibility } from "office-ui-fabric-react/lib/DetailsList";
+import { DetailsList, SelectionMode, IColumn, ISelection, Selection, ConstrainMode, CheckboxVisibility, DetailsListLayoutMode } from "office-ui-fabric-react/lib/DetailsList";
 import { autobind } from "office-ui-fabric-react/lib/Utilities";
 import { ITemplate } from "../../models/interfaces";
-import { DetailsListLayoutMode } from "office-ui-fabric-react/lib/components/DetailsList";
-
-// export interface ITemplateEntryProps {
-//     templateEntry: ITemplateEntry;
-
-//     onChecked: (templateId: string, state: boolean) => void;
-// }
-
-// export class TemplateEntry extends React.PureComponent<ITemplateEntryProps> {
-//     public render(): JSX.Element {
-//         const { templateEntry } = this.props;
-//         const { template } = templateEntry;
-
-//         return (
-//             <div>
-//                 <Checkbox
-//                     label={template.name}
-//                     onChange={this.onChecked} />
-//             </div>
-//         );
-//     }
-
-//     @autobind
-//     private onChecked(ev, checked: boolean) {
-//         const { templateEntry, onChecked } = this.props;
-
-//         if (onChecked) {
-//             onChecked(templateEntry.template.id, checked);
-//         }
-//     }
-// }
-
 
 export interface ITemplateListProps {
     templates: ITemplate[];

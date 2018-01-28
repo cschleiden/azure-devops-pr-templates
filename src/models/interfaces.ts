@@ -22,6 +22,7 @@ export interface IActionPullRequest {
 }
 
 export const enum Mode {
+    Loading,
     Selecting,
     Saving,
     Error

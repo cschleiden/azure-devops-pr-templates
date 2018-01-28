@@ -1,4 +1,4 @@
-import "apply.scss";
+import "./apply.scss";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { IDialogInputData } from "./interfaces";

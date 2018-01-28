@@ -6,7 +6,7 @@ import { GitHttpClient4_1, getClient, GitHttpClient4 } from "TFS/VersionControl/
 const newLine = "\n";
 const twoNewLines = newLine + newLine;
 
-export class TemplateService {
+export class ApplyTemplateService {
     public applyTemplates(pullRequest: IActionPullRequest, templates: ITemplate[]): Promise<void> {
         const currentDescription = pullRequest.description;
 

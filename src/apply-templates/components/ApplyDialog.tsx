@@ -6,8 +6,7 @@ import { autobind } from "office-ui-fabric-react/lib/Utilities";
 import { ApplyDialogContent } from "./ApplyDialogContent";
 import { IDialogInputData } from "../../interfaces";
 import { ActionsHub } from "../actions";
-import { TestData } from "../../models/testData";
-import { TemplateService } from "../../services/templateService";
+import { ApplyTemplateService } from "../../services/templateService";
 import { Spinner } from "../../shared/Spinner";
 
 export interface IApplyDialogProps {
@@ -30,7 +29,7 @@ export class ApplyDialog extends React.Component<IApplyDialogProps, IApplyDialog
         this.store = new ApplyTemplateStore(this.actions);
         this.actionsCreator = new ActionsCreator(this.actions, this.store);
 
-        this.actionsCreator.initialize(TestData);
+        this.actionsCreator.initialize();
 
         this.store.addListener(this.storeChanged);
 
@@ -48,6 +47,12 @@ export class ApplyDialog extends React.Component<IApplyDialogProps, IApplyDialog
         const { mode } = this.state;
 
         switch (mode) {
+            case Mode.Loading: {
+                return (
+                    <Spinner label={"Loading templates"} />
+                );
+            }
+
             case Mode.Selecting: {
                 return (
                     <ApplyDialogContent store={this.store} actionsCreator={this.actionsCreator} />

@@ -46,14 +46,17 @@
     "tfx-cli": "^0.5.3",
     "ts-loader": "3.3.1",
     "typescript": "2.6.2",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
     "@types/es6-promise": "^3.3.0",
     "es6-promise": "^4.2.4",
+    "file-loader": "^1.1.6",
     "office-ui-fabric-react": "^5.43.1",
     "tslint": "^5.9.1",
+    "url-loader": "^0.6.2",
+    "vss-ui": "^3.127.3",
     "vss-web-extension-sdk": "5.127.0"
   }
 }
