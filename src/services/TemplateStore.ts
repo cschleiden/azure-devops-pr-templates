@@ -10,7 +10,9 @@ export class TemplateStoreService {
             .then(s => s.queryCollectionNames([DocumentCollectionId]))
             .then(collections => {
                 if (collections.length > 0) {
-                    return collections[0].documents || [];
+                    const templates: ITemplate[] = collections[0].documents || [];
+                    templates.sort((a, b) => a.name.localeCompare(b.name));
+                    return templates;
                 }
 
                 return [];
