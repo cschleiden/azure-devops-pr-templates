@@ -2,6 +2,11 @@
 
 var exec = require("child_process").exec;
 
+var manifest = require("../vss-extension.json");
+var extensionId = manifest.id;
+var extensionPublisher = manifest.publisher;
+var extensionVersion = manifest.version;
+
 // Package extension
 var command = `tfx extension create --overrides-file ../configs/release.json --manifest-globs ./vss-extension-release.json --no-prompt --json --rev-version`;
 exec(command, { 
