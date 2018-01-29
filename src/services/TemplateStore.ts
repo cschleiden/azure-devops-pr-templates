@@ -17,14 +17,19 @@ export class TemplateStoreService {
             });
     }
 
-    createTemplate(template: ITemplate): Promise<void> {
+    createTemplate(template: ITemplate): Promise<ITemplate> {
         return this.getService()
             .then(service => service.createDocument(DocumentCollectionId, template));
     }
 
-    saveTemplate(template: ITemplate): Promise<void> {
+    updateTemplate(template: ITemplate): Promise<ITemplate> {
         return this.getService()
             .then(service => service.updateDocument(DocumentCollectionId, template));
+    }
+
+    deleteTemplate(template: ITemplate): Promise<void> {
+        return this.getService()
+            .then(service => service.deleteDocument(DocumentCollectionId, template.id));
     }
 
     private getService(): Promise<ExtensionDataService> {

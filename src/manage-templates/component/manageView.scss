@@ -1,10 +1,25 @@
-.manage-view {
-    width: 100%;
-    height: 100%;
-
-    &-list {
+.manage-hub {
+    &, .manage-view-edit {
+        width: 100%;
         height: 100%;
-        width: 200px;
-        border-right: 1px solid grey;
+    }
+
+    .manage-view-edit {
+        display: flex;
+
+        .manage-view-list {        
+            flex-grow: 0;
+
+            width: 300px;
+            border-right: 1px solid #eaeaea;
+
+            padding-top: 10px;
+        }
+
+        .manage-view-edit {
+            flex-grow: 1;
+
+            padding: 10px;
+        }
     }
 }

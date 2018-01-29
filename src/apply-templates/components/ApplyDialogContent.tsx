@@ -39,9 +39,15 @@ export class ApplyDialogContent extends React.Component<IApplyDialogContentProps
     render(): JSX.Element {
         const { templates } = this.state;
 
+        const context = VSS.getWebContext();
+        const extensionContext = VSS.getExtensionContext();
+        const url = `${context.collection.uri}${context.project.name}/_apps/hub/${extensionContext.publisherId}.${extensionContext.extensionId}.manage-templates-hub`;
+
         return (
             <div className="apply-template-root">
-                <Label className="apply-template-description">Select one or more template to apply to the PR description.</Label>
+                <Label className="apply-template-description">
+                    Select one or more template to apply to the PR description.&nbsp;<a href={url} target="_top">Manage templates</a>
+                </Label>
 
                 <TemplateList templates={templates} onSelectionChanged={this.selectionChanged} />
             </div>

@@ -19,6 +19,9 @@
     "demands": [
         "api-version/3.0"
     ],
+    "galleryFlags": [
+        "Preview"
+    ],
     "tags": [
         "Pull Requests",
         "Templates"
@@ -42,7 +45,7 @@
         "theme": "light"
     },
     "categories": [
-        "Plan and track"
+        "Code"
     ],
     "contributions": [
         {
