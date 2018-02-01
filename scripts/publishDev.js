@@ -5,11 +5,12 @@ var manifest = require("../vss-extension.json");
 var extensionId = manifest.id;
 var extensionPublisher = manifest.publisher;
 var extensionVersion = manifest.version;
+var extensionName = manifest.name;
 
 console.log("Packaging dev package...")
 
 // Package extension
-var command = `tfx extension create --overrides-file configs/dev.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --rev-version --no-prompt`;
+var command = `tfx extension create --overrides-file configs/dev.json --manifest-globs vss-extension.json --extension-id ${extensionId}-dev --override "{ 'name': '${extensionName}-dev' }" --rev-version --no-prompt`;
 exec(command, function (error, stdout, stderr) {
     if (error) {
         console.error(`Could not package extension: ${error}`);

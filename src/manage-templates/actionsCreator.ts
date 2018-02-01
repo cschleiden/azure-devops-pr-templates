@@ -13,7 +13,7 @@ export class ActionsCreator {
     }
 
     initialize(): void {
-        new TemplateStoreService().getTemplates().then(
+        this.getStorage().getTemplates().then(
             templates => {
                 this.actions.initialize.invoke(templates);
             },

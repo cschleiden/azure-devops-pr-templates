@@ -16,4 +16,5 @@
 
 # Version History
 
+* **0.2.0** - Templates are now project-scoped. The very first time you visit the admin page after this update, all templates will be migrated into the current project. 
 * **0.1.1** - First preview version
