@@ -1,11 +1,11 @@
 {
     "manifestVersion": 1,
-    "version": "0.1.6",
+    "version": "0.2.0",
     "name": "PR Templates",
     "scopes": [
         "vso.code_write"
     ],
-    "description": "Quickly add templates like checklists to your pull request descriptions",
+    "description": "Quickly apply templates to your pull request descriptions",
     "publisher": "cschleiden",
     "id": "prtemplates",
     "icons": {
