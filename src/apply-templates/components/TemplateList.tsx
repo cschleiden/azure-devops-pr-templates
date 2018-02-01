@@ -27,7 +27,7 @@ export class TemplateList extends React.PureComponent<ITemplateListProps> {
             key: "createdBy",
             name: "Created By",
             fieldName: "createdBy",
-            minWidth: 75,
+            minWidth: 150,
             isCollapsable: true,
             isResizable: true
         }
