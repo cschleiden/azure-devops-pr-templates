@@ -1,6 +1,6 @@
 {
     "manifestVersion": 1,
-    "version": "0.2.0",
+    "version": "1.0.0",
     "name": "PR Templates",
     "scopes": [
         "vso.code_write"
