@@ -1,3 +1,7 @@
+# Important Notice
+
+Pull request templates are now a built-in feature, see the [documentation](https://docs.microsoft.com/en-us/vsts/repos/git/pull-request-templates?view=vsts) for more information. This extension will not be updated and might be unpublished at some point in the future. Please migrate your templates to the new feature.
+
 # Apply templates to your pull request description
 
 - Quickly apply templates to your pull request description
