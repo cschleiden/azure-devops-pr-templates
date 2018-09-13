@@ -1,3 +1,7 @@
+# This is now a built-in [Azure DevOps feature](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-templates?view=vsts)
+
+This extension won't be updated going forward.
+
 # VSTS PR Templates #
 
 This extension allows you to define templates for your VSTS pull requests and quickly apply those to the pull request description.
