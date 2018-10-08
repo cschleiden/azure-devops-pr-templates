@@ -12,14 +12,18 @@ export class ActionsCreator {
         this.actionsHub.changeSelection.invoke(selectedTemplates);
     }
 
-    initialize(): void {
-        new TemplateStoreService().getTemplates().then(
-            templates => {
-                this.actionsHub.initialize.invoke(templates);
-            },
-            error => {
+    initialize(pullRequest: IActionPullRequest): void {
+        new TemplateStoreService().getTemplates().then(templates => {
+            this.actionsHub.initializeTemplates.invoke(templates);
+        }, error => {
+            this.actionsHub.changeMode.invoke(Mode.Error);
+        }).then(() => {
+            new ApplyTemplateService().getStatus(pullRequest).then(prStatus => {
+                this.actionsHub.initializeStatus.invoke(prStatus);
+            }, error => {
                 this.actionsHub.changeMode.invoke(Mode.Error);
             });
+        });
     }
 
     applyTemplates(pullRequest: IActionPullRequest): Promise<void> {

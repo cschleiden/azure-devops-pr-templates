@@ -24,6 +24,19 @@ export class ApplyTemplateService {
             .then(() => resolve(), reject));
     }
 
+    public getStatus(pullRequest: IActionPullRequest): Promise<PullRequestStatus> {
+        const client = this.getClient();
+
+        return new Promise<PullRequestStatus>((resolve, reject) =>
+          client
+            .getPullRequest(
+              pullRequest.repositoryId,
+              pullRequest.pullRequestId
+            )
+            .then(pr => resolve(pr.status), reject)
+        );
+    }
+
     private getClient(): GitHttpClient4 {
         return getClient();
     }
