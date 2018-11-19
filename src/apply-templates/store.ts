@@ -2,6 +2,7 @@ import { BaseStore } from "../store";
 import { ActionsHub } from "./actions";
 import { autobind } from "office-ui-fabric-react/lib/Utilities";
 import { ITemplate, Mode } from "../models/interfaces";
+import { PullRequestStatus } from "TFS/VersionControl/Contracts";
 
 export class ApplyTemplateStore extends BaseStore<ActionsHub> {
     private templates: ITemplate[] = [];
@@ -9,7 +10,8 @@ export class ApplyTemplateStore extends BaseStore<ActionsHub> {
     private mode: Mode = Mode.Loading;
 
     protected init() {
-        this.actionsHub.initialize.addListener(this.initialize);
+        this.actionsHub.initializeTemplates.addListener(this.initializeTemplates);
+        this.actionsHub.initializeStatus.addListener(this.initializeStatus);
         this.actionsHub.changeSelection.addListener(this.changeSelection);
         this.actionsHub.changeMode.addListener(this.changeMode);
     }
@@ -31,9 +33,18 @@ export class ApplyTemplateStore extends BaseStore<ActionsHub> {
     }
 
     @autobind
-    private initialize(templates: ITemplate[]) {
+    private initializeTemplates(templates: ITemplate[]) {
         this.templates = templates.slice(0);
         this.mode = Mode.Selecting;
+
+        this.emitChanged();
+    }
+
+    @autobind
+    private initializeStatus(prStatus: PullRequestStatus) {
+        if (prStatus !== PullRequestStatus.Active) {
+            this.mode = Mode.PRNotActive;
+        }
 
         this.emitChanged();
     }

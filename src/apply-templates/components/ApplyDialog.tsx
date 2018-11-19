@@ -29,7 +29,7 @@ export class ApplyDialog extends React.Component<IApplyDialogProps, IApplyDialog
         this.store = new ApplyTemplateStore(this.actions);
         this.actionsCreator = new ActionsCreator(this.actions, this.store);
 
-        this.actionsCreator.initialize();
+        this.actionsCreator.initialize(config.pullRequest);
 
         this.store.addListener(this.storeChanged);
 
@@ -62,6 +62,12 @@ export class ApplyDialog extends React.Component<IApplyDialogProps, IApplyDialog
             case Mode.Saving: {
                 return (
                     <Spinner label={"Applying templates"} />
+                );
+            }
+
+            case Mode.PRNotActive: {
+                return (
+                    <div>The Pull Request is not active.</div>
                 );
             }
 

@@ -1,4 +1,4 @@
-import { GitPullRequest } from "TFS/VersionControl/Contracts";
+import { GitPullRequest, PullRequestStatus } from "TFS/VersionControl/Contracts";
 import { ITemplate, IActionPullRequest } from "../models/interfaces";
 import { VersionControlActionService } from "TFS/VersionControl/Services";
 import { GitHttpClient4_1, getClient, GitHttpClient4 } from "TFS/VersionControl/GitRestClient";
@@ -14,11 +14,27 @@ export class ApplyTemplateService {
 
         const client = this.getClient();
 
-        return new Promise<void>((resolve, reject) =>
-            client.updatePullRequest({
-                description: updatedDescription
-            } as any, pullRequest.repositoryId, pullRequest.pullRequestId)
-                .then<void>(() => resolve(), reject));
+        return new Promise<void>((resolve, reject) => client
+            .getPullRequest(pullRequest.repositoryId, pullRequest.pullRequestId)
+            .then(pr => {
+                if (pr.status === PullRequestStatus.Active) {
+                    pr.description = updatedDescription;
+                }
+            })
+            .then(() => resolve(), reject));
+    }
+
+    public getStatus(pullRequest: IActionPullRequest): Promise<PullRequestStatus> {
+        const client = this.getClient();
+
+        return new Promise<PullRequestStatus>((resolve, reject) =>
+          client
+            .getPullRequest(
+              pullRequest.repositoryId,
+              pullRequest.pullRequestId
+            )
+            .then(pr => resolve(pr.status), reject)
+        );
     }
 
     private getClient(): GitHttpClient4 {

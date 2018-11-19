@@ -12,12 +12,13 @@ export class ActionsCreator {
         this.actionsHub.changeSelection.invoke(selectedTemplates);
     }
 
-    initialize(): void {
-        new TemplateStoreService().getTemplates().then(
-            templates => {
-                this.actionsHub.initialize.invoke(templates);
-            },
-            error => {
+    initialize(pullRequest: IActionPullRequest): void {
+        Promise.all([new TemplateStoreService().getTemplates(),
+        new ApplyTemplateService().getStatus(pullRequest)
+        ]).then(([templates, prStatus]) => {
+            this.actionsHub.initializeTemplates.invoke(templates);
+                this.actionsHub.initializeStatus.invoke(prStatus);
+        }).catch(error => {
                 this.actionsHub.changeMode.invoke(Mode.Error);
             });
     }
