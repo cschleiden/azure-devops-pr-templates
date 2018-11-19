@@ -13,17 +13,14 @@ export class ActionsCreator {
     }
 
     initialize(pullRequest: IActionPullRequest): void {
-        new TemplateStoreService().getTemplates().then(templates => {
+        Promise.all([new TemplateStoreService().getTemplates(),
+        new ApplyTemplateService().getStatus(pullRequest)
+        ]).then(([templates, prStatus]) => {
             this.actionsHub.initializeTemplates.invoke(templates);
-        }, error => {
-            this.actionsHub.changeMode.invoke(Mode.Error);
-        }).then(() => {
-            new ApplyTemplateService().getStatus(pullRequest).then(prStatus => {
                 this.actionsHub.initializeStatus.invoke(prStatus);
-            }, error => {
+        }).catch(error => {
                 this.actionsHub.changeMode.invoke(Mode.Error);
             });
-        });
     }
 
     applyTemplates(pullRequest: IActionPullRequest): Promise<void> {
