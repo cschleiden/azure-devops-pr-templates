@@ -13,7 +13,7 @@
     },
     "targets": [
         {
-            "id": "Microsoft.VisualStudio.Services"
+            "id": "Microsoft.TeamFoundation.Server"
         }
     ],
     "demands": [
