@@ -25,5 +25,6 @@ export const enum Mode {
     Loading,
     Selecting,
     Saving,
+    PRNotActive,
     Error
 }
