@@ -18,7 +18,9 @@ export class ApplyTemplateService {
             .getPullRequest(pullRequest.repositoryId, pullRequest.pullRequestId)
             .then(pr => {
                 if (pr.status === PullRequestStatus.Active) {
-                    pr.description = updatedDescription;
+                    return client.updatePullRequest({
+                        description: updatedDescription
+                    } as any, pullRequest.repositoryId, pullRequest.pullRequestId);
                 }
             })
             .then(() => resolve(), reject));
