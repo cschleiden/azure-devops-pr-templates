@@ -1,4 +1,5 @@
 {
+  "name": "azure-devops-pr-templates",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -6,35 +7,20 @@
     "dev": "webpack-dev-server --progress --colors --content-base ./src --https --port 9085 --no-inline",
     "publish:dev": "node ./scripts/publishDev",
     "build:release": "npm run clean && mkdir dist && webpack --progress --colors --output-path ./dist -p",
-    "publish:release": "npm run build:release && node ./scripts/publishRelease",
-    "dev:test": "karma start",
-    "test": "karma start --single-run",
-    "postinstall": "npm run test"
+    "publish:release": "npm run build:release && node ./scripts/publishRelease"
   },
   "author": "Christopher Schleiden",
   "license": "MIT",
-  "devDependencies": {
-    "@types/chai": "^3.4.35",
+  "devDependencies": {    
     "@types/jquery": "^2.0.40",
     "@types/knockout": "^3.4.39",
-    "@types/mocha": "^2.2.39",
     "@types/react": "16.0.35",
     "@types/react-dom": "16.0.3",
-    "@types/requirejs": "^2.1.28",
-    "chai": "^3.5.0",
+    "@types/requirejs": "^2.1.28",    
+    "@types/es6-promise": "^3.3.0",
     "copy-webpack-plugin": "^3.0.0",
     "css-loader": "^0.23.1",
-    "es6-promise": "4.2.4",
-    "karma": "^0.13.22",
-    "karma-chai": "^0.1.0",
-    "karma-mocha": "^1.0.1",
-    "karma-mocha-reporter": "^2.0.3",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-sinon": "^1.0.5",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.5.3",
     "node-sass": "^4.9.3",
-    "phantomjs-prebuilt": "^2.1.7",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "rimraf": "^2.5.2",
@@ -48,7 +34,7 @@
     "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
-    "@types/es6-promise": "^3.3.0",
+    "es6-promise": "4.2.4",
     "es6-promise": "^4.2.4",
     "file-loader": "^1.1.6",
     "office-ui-fabric-react": "^5.43.1",

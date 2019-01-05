@@ -17,6 +17,7 @@ Pull request templates are now a built-in feature, see the [documentation](https
 
 # Version History
 
+* **1.0.6** - Re-enable support for Azure DevOps, fix the issue where the template wasn't actually applied (GH#10).
 * **1.0.2** - Do not show for completed PRs, thanks to [jodli](https://github.com/jodli)
 * **1.0.0** - First stable version
 * **0.2.0** - Templates are now project-scoped. The very first time you visit the admin page after this update, all templates will be migrated into the current project. 

@@ -1,84 +1,70 @@
 {
-    "manifestVersion": 1,
-    "version": "1.0.2",
-    "name": "PR Templates",
-    "scopes": [
-        "vso.code_write"
-    ],
-    "description": "Quickly apply templates to your pull request descriptions",
-    "publisher": "cschleiden",
-    "id": "prtemplates",
-    "icons": {
-        "default": "marketplace/logo.png"
+  "manifestVersion": 1,
+  "version": "1.0.6",
+  "name": "PR Templates",
+  "scopes": ["vso.code_write"],
+  "description": "Quickly apply templates to your pull request descriptions",
+  "publisher": "cschleiden",
+  "id": "prtemplates",
+  "icons": {
+    "default": "marketplace/logo.png"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.TeamFoundation.Server"
     },
-    "targets": [
-        {
-            "id": "Microsoft.TeamFoundation.Server"
-        }
-    ],
-    "demands": [
-        "api-version/3.0"
-    ],
-    "galleryFlags": [
-        "Preview"
-    ],
-    "tags": [
-        "Pull Requests",
-        "Templates"
-    ],
-    "content": {
-        "details": {
-            "path": "marketplace/details.md"
-        }
+    { "id": "Microsoft.VisualStudio.Services" }
+  ],
+  "demands": ["api-version/3.0"],
+  "galleryFlags": ["Preview"],
+  "tags": ["Pull Requests", "Templates"],
+  "content": {
+    "details": {
+      "path": "marketplace/details.md"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cschleiden/vsts-pr-templates"
+  },
+  "links": {
+    "support": {
+      "url": "mailto:christopher.schleiden@microsoft.com"
+    }
+  },
+  "branding": {
+    "color": "rgb(220, 235, 252)",
+    "theme": "light"
+  },
+  "categories": ["Code"],
+  "contributions": [
+    {
+      "id": "context-menu",
+      "type": "ms.vss-web.action",
+      "targets": ["ms.vss-code-web.pull-request-action-menu"],
+      "properties": {
+        "group": "contributed",
+        "uri": "src/index.html",
+        "text": "Templates",
+        "registeredObjectId": ""
+      }
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cschleiden/vsts-pr-templates"
+    {
+      "id": "apply-templates",
+      "type": "ms.vss-web.control",
+      "properties": {
+        "uri": "src/apply.html"
+      }
     },
-    "links": {
-        "support": {
-            "url": "mailto:christopher.schleiden@microsoft.com"
-        }
-    },
-    "branding": {
-        "color": "rgb(220, 235, 252)",
-        "theme": "light"
-    },
-    "categories": [
-        "Code"
-    ],
-    "contributions": [
-        {
-            "id": "context-menu",
-            "type": "ms.vss-web.action",
-            "targets": [
-                "ms.vss-code-web.pull-request-action-menu"
-            ],
-            "properties": {
-                "group": "contributed",
-                "uri": "src/index.html",
-                "text": "Templates",
-                "registeredObjectId": ""
-            }
-        },
-        {
-            "id": "apply-templates",
-            "type": "ms.vss-web.control",
-            "properties": {
-                "uri": "src/apply.html"
-            }
-        },
-        {
-            "id": "manage-templates-hub",
-            "type": "ms.vss-web.hub",
-            "targets": [
-                "ms.vss-web.project-admin-hub-group"
-            ],
-            "properties": {
-                "name": "Pull Request Templates",
-                "order": 100,
-                "uri": "src/manage.html"
-            }
-        }
-    ]
+    {
+      "id": "manage-templates-hub",
+      "type": "ms.vss-web.hub",
+      "targets": ["ms.vss-web.project-admin-hub-group"],
+      "properties": {
+        "name": "Pull Request Templates",
+        "order": 100,
+        "uri": "src/manage.html"
+      }
+    }
+  ]
 }

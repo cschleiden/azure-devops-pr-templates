@@ -1,7 +1,6 @@
-import { GitPullRequest, PullRequestStatus } from "TFS/VersionControl/Contracts";
-import { ITemplate, IActionPullRequest } from "../models/interfaces";
-import { VersionControlActionService } from "TFS/VersionControl/Services";
-import { GitHttpClient4_1, getClient, GitHttpClient4 } from "TFS/VersionControl/GitRestClient";
+import { PullRequestStatus } from "TFS/VersionControl/Contracts";
+import { getClient, GitHttpClient4 } from "TFS/VersionControl/GitRestClient";
+import { IActionPullRequest, ITemplate } from "../models/interfaces";
 
 const newLine = "\n";
 const twoNewLines = newLine + newLine;
