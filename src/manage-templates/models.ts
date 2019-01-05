@@ -1,26 +1,27 @@
 import { ITemplate } from "../models/interfaces";
 
 export const enum Mode {
-    Loading,
-    Editing
+  Loading,
+  Editing
 }
 
 export const enum TemplateState {
-    Unchanged,
-    New,
-    Modified
+  Unchanged,
+  New,
+  Modified
 }
 
-
 export interface IEditTemplate {
-    state: TemplateState;
+  state: TemplateState;
 
-    template: ITemplate;
+  template: ITemplate;
 }
 
 export function canSave(entry: IEditTemplate): boolean {
-    return entry.state !== TemplateState.Unchanged 
-        && entry.template.name.trim() !== ""
-        && entry.template.description.trim() !== ""
-        && entry.template.template.trim() !== "";
+  return (
+    entry.state !== TemplateState.Unchanged &&
+    entry.template.name.trim() !== "" &&
+    entry.template.description.trim() !== "" &&
+    entry.template.template.trim() !== ""
+  );
 }

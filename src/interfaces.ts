@@ -2,9 +2,9 @@ import { GitPullRequest } from "TFS/VersionControl/Contracts";
 import { IActionPullRequest } from "./models/interfaces";
 
 export interface IDialogInputData {
-    pullRequest: IActionPullRequest;
+  pullRequest: IActionPullRequest;
 
-    registerSaveHandler(handler: () => Promise<void>): void;
+  registerSaveHandler(handler: () => Promise<void>): void;
 
-    onUpdate(isValid: boolean): void;
+  onUpdate(isValid: boolean): void;
 }

@@ -1,30 +1,30 @@
 export interface ITemplate {
-    id: string;
+  id: string;
 
-    name: string;
+  name: string;
 
-    description: string;
+  description: string;
 
-    createdBy: string;
+  createdBy: string;
 
-    template: string;
+  template: string;
 }
 
 /**
  * The type provided to the extension is not quite the same as the REST API contract
  */
 export interface IActionPullRequest {
-    pullRequestId: number;
+  pullRequestId: number;
 
-    description: string;
+  description: string;
 
-    repositoryId: string;
+  repositoryId: string;
 }
 
 export const enum Mode {
-    Loading,
-    Selecting,
-    Saving,
-    PRNotActive,
-    Error
+  Loading,
+  Selecting,
+  Saving,
+  PRNotActive,
+  Error
 }
