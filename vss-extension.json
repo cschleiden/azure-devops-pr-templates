@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "name": "PR Templates",
   "scopes": ["vso.code_write"],
   "description": "Quickly apply templates to your pull request descriptions",
@@ -9,12 +9,7 @@
   "icons": {
     "default": "marketplace/logo.png"
   },
-  "targets": [
-    {
-      "id": "Microsoft.TeamFoundation.Server"
-    },
-    { "id": "Microsoft.VisualStudio.Services" }
-  ],
+  "targets": [{ "id": "Microsoft.VisualStudio.Services" }],
   "demands": ["api-version/3.0"],
   "galleryFlags": ["Preview"],
   "tags": ["Pull Requests", "Templates"],
